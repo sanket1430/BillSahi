@@ -1,26 +1,185 @@
 @import "tailwindcss";
+@import "@fontsource/baloo-2/400.css";
+@import "@fontsource/baloo-2/500.css";
+@import "@fontsource/baloo-2/600.css";
+@import "@fontsource/baloo-2/700.css";
+@import "@fontsource/baloo-2/800.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/600.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  BillSahi tokens
+  carbon  — the purple-blue of carbon-copy bill books
+  paper   — thermal receipt paper
+  ink     — faded thermal print
+  stamps  — rubber-stamp inks for the verdict
+  marker  — highlighter used to mark a wrong line
+*/
+@theme {
+  --color-carbon: #24318c;
+  --color-carbon-deep: #19236a;
+  --color-carbon-soft: #3a48a6;
+  --color-paper: #fbfbf7;
+  --color-paper-shade: #efefe8;
+  --color-ink: #2b2b31;
+  --color-ink-soft: #66666f;
+  --color-ink-faint: #9b9ba3;
+  --color-sahi: #12784a;
+  --color-gadbad: #c42d28;
+  --color-dekho: #a35d00;
+  --color-marker: #ffe45c;
+
+  --font-sans: "Baloo 2", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-carbon);
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-marker);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .btn-ink,
+  .btn-line,
+  .btn-paper,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    padding: 11px 16px 9px;
+    font-size: 16.5px;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background-color 120ms, color 120ms;
+  }
+  .btn-ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .btn-ink:hover { background: #000; }
+  .btn-line {
+    border: 2px solid var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-line:hover { background: var(--color-paper-shade); }
+  .btn-paper {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+  .btn-paper:hover { background: white; }
+  .btn-ghost {
+    border: 2px solid rgb(255 255 255 / 0.35);
+    color: white;
+  }
+  .btn-ghost:hover { border-color: white; }
+}
+
+@layer components {
+/* Thermal paper slip with torn zig-zag edges top and bottom */
+.paper {
+  --tooth: 7px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  padding: calc(var(--tooth) * 2 + 14px) 18px;
+  mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(2 * var(--tooth)) 51% repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(2 * var(--tooth)) 51% repeat-x;
+  filter: drop-shadow(0 10px 14px rgb(8 12 48 / 0.35));
+}
+.paper-wrap {
+  filter: drop-shadow(0 12px 18px rgb(8 12 48 / 0.4));
+}
+.paper-wrap > .paper {
+  filter: none;
+}
+
+.dashed-rule {
+  border: 0;
+  border-top: 1.5px dashed var(--color-ink-faint);
+  margin: 10px 0;
+}
+
+/* Highlighter on a flagged receipt line */
+.marked {
+  background: linear-gradient(100deg, transparent 0.4%, var(--color-marker) 1.2%, var(--color-marker) 98.6%, transparent 99.4%);
+  border-radius: 2px;
+}
+
+}
+
+/* Rubber stamp */
+.stamp {
+  --stamp: var(--color-sahi);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  color: var(--stamp);
+  border: 4px double var(--stamp);
+  border-radius: 12px;
+  padding: 8px 20px 4px;
+  transform: rotate(-7deg);
+  line-height: 1;
+  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.1 1.45'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mask-size: 160px;
+  animation: thunk 520ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+.stamp--gadbad { --stamp: var(--color-gadbad); }
+.stamp--check { --stamp: var(--color-dekho); }
+.stamp--unreadable { --stamp: var(--color-ink-soft); }
+
+@keyframes thunk {
+  0% { transform: rotate(-7deg) scale(1.9); opacity: 0; }
+  55% { transform: rotate(-7deg) scale(0.94); opacity: 1; }
+  100% { transform: rotate(-7deg) scale(1); opacity: 1; }
+}
+
+/* Scanner line while the AI reads */
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-marker);
+  box-shadow: 0 0 18px 4px rgb(255 228 92 / 0.55);
+  animation: scan 1.8s ease-in-out infinite alternate;
+}
+@keyframes scan {
+  from { top: 4%; }
+  to { top: 94%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp { animation: none; }
+  .scanline { animation: none; top: 50%; }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media print {
+  html, body { background: white !important; color: black; }
+  .no-print { display: none !important; }
+  .paper, .paper-wrap { filter: none !important; mask: none !important; }
+  .stamp { animation: none; }
 }

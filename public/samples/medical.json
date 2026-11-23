@@ -1,0 +1,74 @@
+{
+  "isBill": true,
+  "notBillReason": null,
+  "billType": "pharmacy",
+  "merchantName": "Shubh Laabh Medicals",
+  "merchantAddress": "Gala 2, Station Road, Thane West 400601",
+  "gstin": "27ABCDE1234F5ZK",
+  "billNumber": "SLM-8821",
+  "billDate": "2026-11-18",
+  "items": [
+    {
+      "name": "PCM 650 Tab 15s",
+      "quantity": 2,
+      "unitPrice": 33.5,
+      "mrp": 33.5,
+      "amount": 67,
+      "confidence": "high"
+    },
+    {
+      "name": "Cough Syrup 100ml",
+      "quantity": 1,
+      "unitPrice": 125,
+      "mrp": 118,
+      "amount": 125,
+      "confidence": "high"
+    },
+    {
+      "name": "Vit C Chew 15s",
+      "quantity": 1,
+      "unitPrice": 26,
+      "mrp": 26,
+      "amount": 26,
+      "confidence": "high"
+    },
+    {
+      "name": "ORS Sachet 21g",
+      "quantity": 4,
+      "unitPrice": 21,
+      "mrp": 21,
+      "amount": 84,
+      "confidence": "high"
+    }
+  ],
+  "charges": [],
+  "discounts": [
+    {
+      "label": "Less: Discount 5%",
+      "amount": 15.1
+    }
+  ],
+  "taxes": [
+    {
+      "label": "CGST 2.5%",
+      "kind": "CGST",
+      "rate": 2.5,
+      "taxableAmount": 273.24,
+      "amount": 6.83
+    },
+    {
+      "label": "SGST 2.5%",
+      "kind": "SGST",
+      "rate": 2.5,
+      "taxableAmount": 273.24,
+      "amount": 6.83
+    }
+  ],
+  "taxesIncludedInPrices": true,
+  "subtotal": 302,
+  "roundOff": 0.1,
+  "grandTotal": 287,
+  "dueDate": null,
+  "lateFee": null,
+  "readingNotes": []
+}

@@ -1,0 +1,62 @@
+{
+  "isBill": true,
+  "notBillReason": null,
+  "billType": "grocery_retail",
+  "merchantName": "Navratna Provision Stores",
+  "merchantAddress": "Shop 11, Pant Nagar, Ghatkopar East, Mumbai 400075",
+  "gstin": "27ABCDE1234F4ZX",
+  "billNumber": "3318",
+  "billDate": "2026-11-22",
+  "items": [
+    {
+      "name": "Toor Dal 1kg",
+      "quantity": 1,
+      "unitPrice": 165,
+      "mrp": null,
+      "amount": 165,
+      "confidence": "high"
+    },
+    {
+      "name": "Basmati Rice 5kg",
+      "quantity": 1,
+      "unitPrice": 540,
+      "mrp": 599,
+      "amount": 540,
+      "confidence": "high"
+    },
+    {
+      "name": "Butter 500g",
+      "quantity": 1,
+      "unitPrice": 285,
+      "mrp": 290,
+      "amount": 285,
+      "confidence": "high"
+    },
+    {
+      "name": "Sugar 1kg",
+      "quantity": 2,
+      "unitPrice": 48,
+      "mrp": null,
+      "amount": 96,
+      "confidence": "high"
+    },
+    {
+      "name": "Tea 250g",
+      "quantity": 1,
+      "unitPrice": 145,
+      "mrp": 150,
+      "amount": 145,
+      "confidence": "high"
+    }
+  ],
+  "charges": [],
+  "discounts": [],
+  "taxes": [],
+  "taxesIncludedInPrices": null,
+  "subtotal": null,
+  "roundOff": null,
+  "grandTotal": 1231,
+  "dueDate": null,
+  "lateFee": null,
+  "readingNotes": []
+}

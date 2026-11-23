@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "restaurant",
+    "label": "Restaurant",
+    "merchant": "Tapri Junction Cafe"
+  },
+  {
+    "slug": "medical",
+    "label": "Medical store",
+    "merchant": "Shubh Laabh Medicals"
+  },
+  {
+    "slug": "kirana",
+    "label": "Kirana store",
+    "merchant": "Navratna Provision Stores"
+  }
+]

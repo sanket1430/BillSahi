@@ -1,0 +1,76 @@
+{
+  "isBill": true,
+  "notBillReason": null,
+  "billType": "restaurant",
+  "merchantName": "Tapri Junction Cafe",
+  "merchantAddress": "Shop 4, Marol Naka, Andheri East, Mumbai 400059",
+  "gstin": "27ABCDE1234F3ZY",
+  "billNumber": "TJ/2611/0457",
+  "billDate": "2026-11-21",
+  "items": [
+    {
+      "name": "Masala Dosa",
+      "quantity": 2,
+      "unitPrice": 120,
+      "mrp": null,
+      "amount": 240,
+      "confidence": "high"
+    },
+    {
+      "name": "Pav Bhaji",
+      "quantity": 1,
+      "unitPrice": 160,
+      "mrp": null,
+      "amount": 160,
+      "confidence": "high"
+    },
+    {
+      "name": "Filter Coffee",
+      "quantity": 3,
+      "unitPrice": 40,
+      "mrp": null,
+      "amount": 140,
+      "confidence": "high"
+    },
+    {
+      "name": "Fresh Lime Soda",
+      "quantity": 2,
+      "unitPrice": 70,
+      "mrp": null,
+      "amount": 140,
+      "confidence": "high"
+    }
+  ],
+  "charges": [
+    {
+      "label": "Service Charge @10%",
+      "kind": "service_charge",
+      "rate": 10,
+      "amount": 68
+    }
+  ],
+  "discounts": [],
+  "taxes": [
+    {
+      "label": "CGST @2.5%",
+      "kind": "CGST",
+      "rate": 2.5,
+      "taxableAmount": null,
+      "amount": 18.7
+    },
+    {
+      "label": "SGST @2.5%",
+      "kind": "SGST",
+      "rate": 2.5,
+      "taxableAmount": null,
+      "amount": 18.7
+    }
+  ],
+  "taxesIncludedInPrices": false,
+  "subtotal": 680,
+  "roundOff": -0.4,
+  "grandTotal": 785,
+  "dueDate": null,
+  "lateFee": null,
+  "readingNotes": []
+}
