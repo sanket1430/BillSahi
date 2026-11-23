@@ -2,7 +2,7 @@
 
 Snap a photo of any Indian bill (restaurant, medical store, kirana, electricity) and find out in seconds whether you were charged correctly.
 
-**Live demo:** _link added after deploy_ · No bill handy? The home page has three demo bills with planted mistakes.
+**Live demo:** [billsahi.vercel.app](https://billsahi.vercel.app) · No bill handy? The home page has three demo bills with planted mistakes.
 
 <p align="center"><img src="public/samples/restaurant.jpg" width="280" alt="A demo restaurant bill"></p>
 
